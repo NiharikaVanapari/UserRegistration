@@ -8,7 +8,7 @@ class UserRegistration
 
     Scanner scanner = new Scanner(System.in);
 
-    public static final String PASSWORDPATTERN = "[0-9a-zA-Z!@#$%^&*]{8,}";
+    public static final String PASSWORDPATTERN = "^(?=.*[A-Z])[0-9a-zA-Z@$!%*#?&]{8,}$";
 
     public static void main(String[] args)
     {
@@ -17,7 +17,7 @@ class UserRegistration
     }
     private void readInput() //Read an input from the user.
     {
-        System.out.println("Enter The Password");
+        System.out.println("Enter the Password ");
         String Password = scanner.next();
         validateInput(PASSWORDPATTERN,Password);
     }
