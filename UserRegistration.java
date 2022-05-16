@@ -3,23 +3,23 @@ package userregistration;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class UserRegistration 
+class UserRegistration
 {
 
     Scanner scanner = new Scanner(System.in);
 
-    public static final String NUMBERPATTERN = "^[+0-9]{2}{10}$";
+    public static final String PASSWORDPATTERN = "[0-9a-zA-Z!@#$%^&*]{8,}";
 
     public static void main(String[] args)
     {
         UserRegistration userRegistration = new UserRegistration();
         userRegistration.readInput();
     }
-    private void readInput() //Method to read an input.
+    private void readInput() //Read an input from the user.
     {
-        System.out.println("Enter Phone Number ");
-        String PhoneNumber = scanner.next();
-        validateInput(NUMBERPATTERN,PhoneNumber);
+        System.out.println("Enter The Password");
+        String Password = scanner.next();
+        validateInput(PASSWORDPATTERN,Password);
     }
 
     private void validateInput(String pattern, String input)
