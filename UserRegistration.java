@@ -2,19 +2,67 @@ package userregistration;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
+import java.util.Scanner;
+
+
 
 public class UserRegistration
 {
+	 Scanner scanner = new Scanner(System.in);
+	 public static final String NAMEPATTERN = "[A-Z][A-Za-z]{2,}";
+	 public static final String EMAILPATTERN = "([0-9A-Za-z])+([-+._][0-9A-Za-z]+)*" + "@([0-9A-Za-z])+[.]([a-zA-Z])+([.][A-Za-z]+)*";
+	 public static final String NUMBERPATTERN = "^[+0-9]{2}{10}$";
+	 public static final String PASSWORDPATTERN = "[0-9a-zA-Z!@#$%^&*]{8,}";
+	 
+	 
+	 public static void main(String[] args)
+	    {
 
-    public static final String EMAILPATTERN = "([0-9A-Za-z])+([-+._][0-9A-Za-z]+)*" + "@([0-9A-Za-z])+[.]([a-zA-Z])+([.][A-Za-z]+)*";
+	        UserRegistration userRegistration = new UserRegistration();
+	        userRegistration.readInput();
+	        userRegistration.SampleemailpatternTest();
+	    }
+	   
 
-    public static void main(String[] args)
-    {
+	    private void readInput() //Method for reading an input.
+	    {
+	        System.out.println("Enter first name ");
+	        String firstName = scanner.next();
+	        validateInput(NAMEPATTERN,firstName);
+	        System.out.println("Enter last name ");
+	        String lastName = scanner.next();
+	        validateInput(NAMEPATTERN,lastName);
+	        System.out.println("Enter email id ");
+	        String EmailId = scanner.next();
+	        validateInput(EMAILPATTERN,EmailId);
+	        System.out.println("Enter Phone Number ");
+	        String PhoneNumber = scanner.next();
+	        validateInput(NUMBERPATTERN,PhoneNumber);
+	        System.out.println("Enter The Password");
+	        String Password = scanner.next();
+	        validateInput(PASSWORDPATTERN,Password);
+	    }
+	    private void validateInput(String pattern, String input)
+	    {
 
-        UserRegistration userRegistration = new UserRegistration();
-        userRegistration.emailpatternTest();
-    }
-	private void emailpatternTest() // Email samples
+	        if(Pattern.matches(pattern, input))
+	        {
+	            System.out.println("Valid");
+	        }
+	        else
+	        {
+	            System.out.println("Invalid");
+	        }
+	    }
+	    
+    
+	    
+	    
+	    
+	    
+	    
+	
+    private void SampleemailpatternTest() // Email samples
 	{
         String sampleEmail1 = "abc@yahoo.com";
         String sampleEmail2 = "abc-100@yahoo.com";
